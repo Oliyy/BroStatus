@@ -1,3 +1,5 @@
+// type definitions for the whole app
+
 export interface status {
   main: string,
   sub?: string

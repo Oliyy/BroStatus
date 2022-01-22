@@ -1,0 +1,20 @@
+.doneButton {
+  position: absolute;
+  top: -21px;
+  right: -21px;
+  width: 40px;
+  height: 40px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background: lightgreen;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+
+.doneButton img {
+  width: 25px;
+  height: 25px;
+}

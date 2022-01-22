@@ -43,39 +43,8 @@
   height: 25px;
 }
 
-.doneButton {
-  position: absolute;
-  top: -21px;
-  right: -21px;
-  width: 40px;
-  height: 40px;
-  -webkit-border-radius: 25px;
-  -moz-border-radius: 25px;
-  border-radius: 25px;
-  background: lightgreen;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  cursor: pointer;
-}
-
-.doneButton img {
-  width: 25px;
-  height: 25px;
-}
-
 .person h1 {
   color: black;
-}
-
-.status {
-  text-align: right;
-  margin-left: auto;
-}
-
-.status .mainStatus {
-  font-size: 22px;
-  font-weight: bold;
 }
 
 @media screen and (min-width: 800px) {

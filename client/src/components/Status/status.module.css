@@ -1,0 +1,9 @@
+.status {
+  text-align: right;
+  margin-left: auto;
+}
+
+.status .mainStatus {
+  font-size: 22px;
+  font-weight: bold;
+}

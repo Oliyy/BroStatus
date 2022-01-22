@@ -32,5 +32,8 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'func-names': 'off',
     'no-console': 'off',
+    'no-param-reassign': 'off',
+    'react/require-default-props': 'off',
+    'consistent-return': 'off',
   },
 };
