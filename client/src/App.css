@@ -1,5 +1,10 @@
+:root {
+  background-color: #FAFAFA;
+}
+
 .App {
   text-align: center;
+  background-color: #FAFAFA;
 }
 
 .App-logo {
@@ -26,6 +31,16 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.peopleStatus {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.peopleContainer {
+  width: 50%;
 }
 
 @keyframes App-logo-spin {
