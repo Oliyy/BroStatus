@@ -9,8 +9,6 @@ type PersonProps = {
 }
 
 function Person({ person }: PersonProps) {
-  console.log(person);
-
   const [edit, setEdit] = useState<Boolean>(false);
   const [statusColor, setStatusColor] = useState('#fff');
 
@@ -31,7 +29,7 @@ function Person({ person }: PersonProps) {
       ...person,
       status: {
         main: value,
-      }
+      },
     };
     socketHandler().updateStatus(personToUpdate);
     setStatus({ main: value });
@@ -56,7 +54,7 @@ function Person({ person }: PersonProps) {
 
   const editMode = (enabled: boolean) => {
     setEdit(enabled);
-  }
+  };
 
   return (
     <div className={styles.person} style={{ borderColor: statusColor }}>
@@ -82,13 +80,13 @@ function Person({ person }: PersonProps) {
 
       { edit && status?.main && (
         <>
-        <select onChange={selectSubStatus}>
-          <option selected disabled>
-            Select sub status
-          </option>
-          { config.statusOptions.find((statusOption) => statusOption.name === status.main)?.subStatusOptions.map((subStatusOption) => <option value={subStatusOption}>{ subStatusOption }</option>)}
-        </select>
-        <button className={styles.doneButton} onClick={() => editMode(false)}><img src="/icons/tick.png" /></button>
+          <select onChange={selectSubStatus}>
+            <option selected disabled>
+              Select sub status
+            </option>
+            { config.statusOptions.find((statusOption) => statusOption.name === status.main)?.subStatusOptions.map((subStatusOption) => <option value={subStatusOption}>{ subStatusOption }</option>)}
+          </select>
+          <button className={styles.doneButton} onClick={() => editMode(false)}><img src="/icons/tick.png" /></button>
         </>
       )}
 

@@ -1,7 +1,7 @@
 import SockJS from 'sockjs-client';
 import request from './request';
 import {
-  socketRequest, stateFunctions, person, status,
+  socketRequest, stateFunctions, person,
 } from './interfaces';
 import config from '../config.js';
 
@@ -37,7 +37,7 @@ export const socketHandler = () => ({
   },
   async updateStatus(data: person) {
     const updateStatus: socketRequest = { type: 'updateStatus', ...data };
-    console.log('updateStatus', updateStatus)
+    console.log('updateStatus', updateStatus);
     request(updateStatus, sock);
   },
 });

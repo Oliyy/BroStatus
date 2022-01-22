@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { socketHandler } from './utils/socketHandler';
 import { stateFunctions } from './utils/interfaces';
@@ -14,7 +13,7 @@ function App() {
 
   useEffect(() => {
     const stateFunctionData: stateFunctions = { setConnected, setPeopleStatus };
-    const SocketHandler = socketHandler().start(stateFunctionData);
+    socketHandler().start(stateFunctionData);
   });
 
   return (
