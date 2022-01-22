@@ -11,21 +11,27 @@ module.exports = {
     }
   ],
   statusOptions: [
-    { name: 'Chilling',
-      subStatusOptions: ['Don\'t mind being disturbed', 'Do not disturb']
-    }, {
-      name: 'Keyed In',
-      subStatusOptions: ['Available', 'Only disturb if urgent']
-    }, {
-      name: 'Busy',
-      subStatusOptions: ['Can be interrupted', 'Only disturb if urgent', 'Do not disturb at all']
-    }, {
-      name: 'In a Meeting',
-      subStatusOptions: ['Do not disturb', 'Only disturb if urgent']
-    }, {
-      name: 'Sleep',
-      subStatusOptions: ['Do not disturb', 'Only disturb if urgent']
-    }
-  ],
+      {
+        name: 'Chilling',
+        subStatusOptions: ['Don\'t mind being disturbed', 'Do not disturb'],
+        color: '#98f5ff',
+      }, {
+        name: 'Keyed In',
+        subStatusOptions: ['Available', 'Only disturb if urgent'],
+        color: '#0b485a',
+      }, {
+        name: 'Busy',
+        subStatusOptions: ['Can be interrupted', 'Only disturb if urgent', 'Do not disturb at all'],
+        color: '#A17562',
+      }, {
+        name: 'In a Meeting',
+        subStatusOptions: ['Do not disturb', 'Only disturb if urgent'],
+        color: '#2486e6',
+      }, {
+        name: 'Sleep',
+        subStatusOptions: ['Do not disturb', 'Only disturb if urgent'],
+        color: '#0c4c74',
+      },
+    ],
   socketUrl: 'http://localhost:9998/hi'
 };

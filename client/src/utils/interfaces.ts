@@ -5,7 +5,7 @@ export interface status {
 
 export interface person {
   name: string,
-  profilePicture?: string
+  profilePicture?: string,
   status?: status
 }
 
@@ -16,6 +16,13 @@ export interface socketRequest {
 }
 
 export interface stateFunctions {
-  setConnected: any;
-  setPeopleStatus: any;
+  setConnected: any,
+  setPeopleStatus: any,
+  setStatusList: any
+}
+
+export interface statusListOption {
+  name: string,
+  color: string,
+  subStatusOptions: Array<string>
 }

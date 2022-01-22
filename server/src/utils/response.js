@@ -1,7 +1,8 @@
 export default function response(data, connection) {
-    const payload = JSON.stringify({
-      ...data
-    })
+  const payload = JSON.stringify({
+    error: false,
+    ...data,
+  });
 
-    connection.write(payload);
+  connection.write(payload);
 }

@@ -16,18 +16,31 @@ export const socketHandler = () => ({
       functions.setConnected(true);
 
       // request people status from the socket
-      const requestData: socketRequest = { type: 'getStatus' };
-      request(requestData, sock);
+      const requestStatusData: socketRequest = { type: 'getStatus' };
+      request(requestStatusData, sock);
+
+      // request status list options from the backend
+      const requestStatusListData: socketRequest = { type: 'getStatusList' };
+      request(requestStatusListData, sock);
     };
 
     sock.onmessage = function (message) {
+      // todo: this should account for the status list returning too
       const response = JSON.parse(message.data);
       console.log('message', response);
 
-      const { peopleStatus } = response;
+      if (response.error) {
+        return console.error('An error occurred');
+      }
 
-      console.log(peopleStatus);
-      functions.setPeopleStatus(peopleStatus);
+      // if message cotains people status list update state
+      if (response.peopleStatus) {
+        return functions.setPeopleStatus(response.peopleStatus);
+      }
+
+      if (response.statusListOptions) {
+        return functions.setStatusList(response.statusListOptions);
+      }
     };
 
     sock.onclose = function () {
@@ -39,7 +52,7 @@ export const socketHandler = () => ({
     const updateStatus: socketRequest = { type: 'updateStatus', ...data };
     console.log('updateStatus', updateStatus);
     request(updateStatus, sock);
-  },
+  }
 });
 
 //

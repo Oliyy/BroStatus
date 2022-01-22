@@ -11,10 +11,13 @@ function App() {
   const [connected, setConnected] = useState(false);
   const [peopleStatus, setPeopleStatus] = useState([]);
 
+  const [statusList, setStatusList] = useState([])
+
   useEffect(() => {
-    const stateFunctionData: stateFunctions = { setConnected, setPeopleStatus };
-    socketHandler().start(stateFunctionData);
-  });
+    const stateFunctionData: stateFunctions = { setConnected, setPeopleStatus, setStatusList };
+    const SocketHandler = socketHandler()
+    SocketHandler.start(stateFunctionData);
+  }, []);
 
   return (
     <div className="App">
@@ -22,7 +25,7 @@ function App() {
 
       <div className="peopleStatus">
         <div className="peopleContainer">
-          { peopleStatus.map((personStatus, i) => <Person key={i} person={personStatus} />)}
+          { peopleStatus.map((personStatus, i) => <Person key={i} person={personStatus} statusList={statusList} />)}
         </div>
       </div>
     </div>

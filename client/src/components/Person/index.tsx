@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import styles from './person.module.css';
-import { person, status } from '../../utils/interfaces';
-import config from '../../config.js';
+import { person, status, statusListOption } from '../../utils/interfaces';
 import { socketHandler } from '../../utils/socketHandler';
 
 type PersonProps = {
-  person: person
+  person: person,
+  statusList: Array<statusListOption>,
 }
 
-function Person({ person }: PersonProps) {
+function Person({ person, statusList }: PersonProps) {
   const [edit, setEdit] = useState<Boolean>(false);
   const [statusColor, setStatusColor] = useState('#fff');
 
   const [status, setStatus] = useState<status>({ main: '', sub: '' });
 
+  // const [statusOptions, setStatusOptions] = useState([]);
+
   const updateStatusColor = () => {
-    const statusOption = config.statusOptions.find((statusOption) => person.status?.main === statusOption.name) ?? { color: '#fff' };
+    const statusOption = statusList.find((statusOption) => person.status?.main === statusOption.name) ?? { color: '#fff' };
     setStatusColor(statusOption.color);
   };
 
@@ -74,7 +76,7 @@ function Person({ person }: PersonProps) {
           <option selected disabled>
             Select status
           </option>
-          { config.statusOptions.map((statusOption) => <option value={statusOption.name}>{ statusOption.name }</option>)}
+          { statusList.map((statusOption) => <option value={statusOption.name}>{ statusOption.name }</option>)}
         </select>
       )}
 
@@ -84,7 +86,7 @@ function Person({ person }: PersonProps) {
             <option selected disabled>
               Select sub status
             </option>
-            { config.statusOptions.find((statusOption) => statusOption.name === status.main)?.subStatusOptions.map((subStatusOption) => <option value={subStatusOption}>{ subStatusOption }</option>)}
+            { statusList.find((statusOption) => statusOption.name === status.main)?.subStatusOptions.map((subStatusOption) => <option value={subStatusOption}>{ subStatusOption }</option>)}
           </select>
           <button className={styles.doneButton} onClick={() => editMode(false)}><img src="/icons/tick.png" /></button>
         </>

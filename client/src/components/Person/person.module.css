@@ -77,3 +77,9 @@
   font-size: 22px;
   font-weight: bold;
 }
+
+@media screen and (min-width: 800px) {
+  body {
+    background-color: lightgreen;
+  }
+}

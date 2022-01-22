@@ -11,5 +11,8 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    'import/extensions': 'off',
+    'no-console': 'off',
+    'max-len': 'off'
   },
 };
