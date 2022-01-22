@@ -34,5 +34,5 @@ module.exports = {
       color: '#0c4c74',
     },
   ],
-  socketUrl: 'http://localhost:9998/hi',
+  socketUrl: 'https://brostatus.oliy.org/hi',
 };
